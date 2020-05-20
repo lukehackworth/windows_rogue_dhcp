@@ -1,5 +1,5 @@
 [package]
-name = "DHCPBroadcast"
+name = "windows_rogue_dhcp"
 version = "0.1.0"
 authors = ["Luke Hackworth <luke@lhackworth.com>"]
 edition = "2018"

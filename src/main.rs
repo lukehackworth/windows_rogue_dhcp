@@ -29,8 +29,6 @@ fn main() -> std::io::Result<()> {
 
     if rogue_dhcp_ips.len() > 0 {
         println!("Found rogue DHCP servers: {:?}", rogue_dhcp_ips);
-    } else {
-        println!("0");
     }
 
     Ok(())
