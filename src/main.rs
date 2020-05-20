@@ -5,8 +5,8 @@ use ipconfig;
 
 fn main() -> std::io::Result<()> {
     let system_ip_addresses = get_system_ip_adresses();
+    
     let mut found_dhcp_server_ips: Vec<IpAddr> = Vec::new();
-
     for ip_address in &system_ip_addresses {
         send_dhcp_broadcast(&ip_address.to_string());
         for found_ip in listen_for_dhcp_broadcasts() {
@@ -14,7 +14,7 @@ fn main() -> std::io::Result<()> {
         }
     }
 
-    let mut rogue_dhcp_ips: Vec<IpAddr> = Vec::new();
+    let mut rogue_dhcp_ips: Vec<String> = Vec::new();
     for found_dhcp_server_ip in found_dhcp_server_ips {
         let mut is_good = false;
         for system_ip_address in &system_ip_addresses {
@@ -23,7 +23,7 @@ fn main() -> std::io::Result<()> {
             }
         }
         if is_good == false {
-            rogue_dhcp_ips.push(found_dhcp_server_ip);
+            rogue_dhcp_ips.push(found_dhcp_server_ip.to_string());
         }
     }
 
