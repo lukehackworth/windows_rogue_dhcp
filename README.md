@@ -1,5 +1,5 @@
 # windows_rogue_dhcp
-A rogue DHCP monitor made to run on Windows DHCP servers.
+A rogue DHCP monitor made to run on Windows DHCP servers. Written in Rust.
 
 This is an application that currently just sends a DHCP request packet on every single IPV4 interface, then listens for a response. If it sees a response from a DHCP server that is not itself, it will list them.
 
